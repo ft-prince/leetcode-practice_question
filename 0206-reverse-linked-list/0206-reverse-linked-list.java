@@ -7,17 +7,27 @@
  *     ListNode(int val) { this.val = val; }
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
+
+
+
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        ListNode prev=null;
         ListNode curr=head;
-        while(curr!=null){
-            ListNode temp=curr.next;
-            curr.next=prev;
-            prev=curr;
-            curr=temp;
-        }
-        return prev;
+        ListNode prev=null;
+while(curr!=null){
+ /*
+ 1->2->3->4
+  <-1
+  prev=2
+
+ */
+    ListNode ahead=curr.next;
+    curr.next=prev;
+    prev=curr;
+    curr=ahead;
+    // ad=curr.next;
+}
+    return prev;
     }
 }
