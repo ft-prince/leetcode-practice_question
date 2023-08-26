@@ -18,15 +18,35 @@ public class Solution {
             a=a.next;
         }
         else{
-            a=headA;
+            a=headB;
         }
                 if(b!=null){
             b=b.next;
         }
         else{
-            b=headB;
+            b=headA;
         }
     }
 return a;
     }
+
+// //         ListNode A=headA;
+//         ListNode B=headB;
+//         while(A!=B){
+//             if(A!=null){
+//                 A=A.next;
+//             }
+//             else{
+//                 A=headB;
+//             }
+//             if(B!=null){
+//                 B=B.next;
+//             }
+//             else{
+//                 B=headA;
+//             }
+//         }
+//     return A;
+
+
 }
