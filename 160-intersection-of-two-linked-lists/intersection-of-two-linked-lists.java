@@ -11,34 +11,22 @@
  */
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        // we can do with the size also cal the size from both the loops then sub find the val  starts point out from that val
-        
- int a=length(headA);
- int b=length(headB);
- while(a>b){
-     headA=headA.next;
-     a--;
- }
-
- while(b>a){
-     headB=headB.next;
-     b--;
- }
-
- while(headA!=headB){
-     headA=headA.next;   
-       headB=headB.next;
-
- }
-return headA;
+     ListNode a=headA;
+    ListNode b=headB;
+    while(a!=b){
+        if(a!=null){
+            a=a.next;
+        }
+        else{
+            a=headA;
+        }
+                if(b!=null){
+            b=b.next;
+        }
+        else{
+            b=headB;
+        }
     }
-
-    private int length(ListNode node) {
-    int length = 0;
-    while (node != null) {
-        node = node.next;
-        length++;
+return a;
     }
-    return length;
-}
 }
