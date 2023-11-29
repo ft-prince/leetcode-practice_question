@@ -1,29 +1,24 @@
 class Solution {
     public int maxUncrossedLines(int[] nums1, int[] nums2) {
-              int[][] dp = new int[nums1.length][nums2.length];
-
-       for (int ans[] :
-                dp) {
-            Arrays.fill(ans, -1);
-        }
-
-        return UL(nums1,nums2,0,0,dp);   
+        return UL2(nums1,nums2);
     }
-      public static int UL(int[] arr1, int[] arr2, int i, int j, int dp[][]) {
-        if (i == arr1.length || j == arr2.length) {
-            return 0;
+        public static int UL2(int[] arr1, int[] arr2) {
+        int[][] dp = new int[arr1.length+1][arr2.length+1];
+        for (int i = 1; i < dp.length; i++) {
+      
+            for (int j = 1; j < dp[0].length; j++) {
+  int ans = 0;
+
+                if (arr1[i - 1] == arr2[j - 1]) {
+                    ans = 1 + dp[i - 1][j - 1];
+                } else {
+                    int a = dp[i - 1][j];
+                    int b = dp[i][j - 1];
+                    ans = Math.max(a, b);
+                }
+                dp[i][j] = ans;
+            }
         }
-        if (dp[i][j] != -1) {
-            return dp[i][j];
-        }
-        int ans = 0;
-        if (arr1[i] == arr2[j]) {
-            ans = 1 + UL(arr1, arr2, i + 1, j + 1, dp);
-        } else {
-            int a = UL(arr1, arr2, i + 1, j, dp);
-            int b = UL(arr1, arr2, i, j + 1, dp);
-            ans = Math.max(a, b);
-        }
-        return dp[i][j] = ans;
+        return dp[dp.length - 1][dp[0].length - 1];
     }
 }
