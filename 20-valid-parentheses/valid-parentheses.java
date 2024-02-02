@@ -1,14 +1,12 @@
 class Solution {
     public boolean isValid(String s) {
-        return isBalanced(s);
-    }
-    public static boolean isBalanced(String s) {
-		
-		 Stack<Character> st=new Stack<>();
+        
+         Stack<Character> st=new Stack<>();
          for (int i = 0; i < s.length(); i++) {
              char x=s.charAt(i);
         	 if(x=='(' || x=='{' || x=='[') 
             	 st.push(x);
+
             else if(!st.isEmpty()){
         	 if((x==')' && st.peek()=='(') ||
               (x=='}' && st.peek()=='{' )
@@ -24,6 +22,10 @@ class Solution {
 			return true;
 		}
 		 return false;
-	}
 
+    }
 }
+
+
+
+//  approach first we can use hasMap for ):( 
