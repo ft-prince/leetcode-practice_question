@@ -10,31 +10,36 @@
  */
 
 class Solution {
+        ListNode newHead = null;
+
     public ListNode reverseList(ListNode head) {
         // Check if the list is empty or has only one node
         if (head == null || head.next == null)
             return head;
         
-        // Initialize pointers to traverse the list
-        ListNode curr = head;
-        ListNode prev = null;
-        
-        // Iterate through the list, reversing pointers along the way
-        while (curr != null) {
-            // Store the next node temporarily
-            ListNode tmp = curr.next;
-            // Reverse the current node's pointer to point to the previous node
-            curr.next = prev;
-            // Move the pointers forward
-            prev = curr;
-            curr = tmp;
+        // Initialize a newHead variable to store the new head of the reversed list
+        // Call the reverse method to reverse the list recursively
+        reverse(head);
+        // Return the new head of the reversed list
+        return newHead;
+    }
+    
+    private ListNode reverse(ListNode head) {
+        // Base case: If the current node is the last node, set it as the new head
+        if (head.next == null) {
+            newHead = head;
+            return head;
         }
-        
-        // At the end, prev will be pointing to the new head of the reversed list
-        return prev;
+        // Recursively reverse the rest of the list
+        ListNode tmp = reverse(head.next);
+        // Reverse the pointers to reverse the list
+        tmp.next = head;
+        head.next = null;
+        // Return the current node to the previous level of recursion
+        return head;
     }
 }
 
 //  1st way naive approach by using stack 
 //  iterative approach by using three pointer we can change the direction of nodes 
-
+//  recursive function 
