@@ -8,10 +8,9 @@
  */
 class Solution {
     public void deleteNode(ListNode node) {
-      //Store the next node value into given node
-node.val=node.next.val;
-      //Store the next to next node  into given node
-node.next=node.next.next;
-
+        // Copy the value of the next node to the current node
+        node.val = node.next.val;
+        // Point the current node's next pointer to the node after the next node
+        node.next = node.next.next;
     }
 }
