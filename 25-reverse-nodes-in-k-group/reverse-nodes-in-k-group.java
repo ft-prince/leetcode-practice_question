@@ -9,25 +9,31 @@
  * }
  */
 class Solution {
- public ListNode reverseKGroup(ListNode head, int k) {
-    //1. test weather we have more then k node left, if less then k node left we just return head 
-    ListNode node = head;
-    int count = 0;
-    while (count < k) { 
-        if(node == null)return head;
-        node = node.next;
-        count++;
-    }
-    // 2.reverse k node at current level 
-       ListNode pre = reverseKGroup(node, k); //pre node point to the the answer of sub-problem 
+    public ListNode reverseKGroup(ListNode head, int k) {
+        // Check if there are at least k nodes left in the list
+        ListNode node = head;
+        int count = 0;
+        while (count < k) { 
+            // If there are fewer than k nodes left, return head (no need to reverse)
+            if (node == null)
+                return head;
+            // Move to the next node
+            node = node.next;
+            // Increment count
+            count++;
+        }
+        // Reverse the next k nodes and get the new head of this group
+        ListNode pre = reverseKGroup(node, k); // pre node points to the answer of the sub-problem 
         while (count > 0) {  
+            // Reverse the pointers of the current group of k nodes
             ListNode next = head.next; 
             head.next = pre; 
             pre = head; 
             head = next;
+            // Decrement count
             count = count - 1;
         }
+        // Return the new head of the reversed group
         return pre;
-}
-
+    }
 }
