@@ -1,53 +1,49 @@
 class Solution {
-  public int numIslands(char[][] grid) {
-    if (grid == null || grid.length == 0) {
-        return 0;
-    }
+    public int numIslands(char[][] grid) {
+        int count = 0; // Initialize count of islands
 
-    int rows = grid.length;
-    int cols = grid[0].length;
-    int count = 0;
-
-    HashSet<Integer> visited = new HashSet<>();
-
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            int index = i * cols + j;
-            if (grid[i][j] == '1' && !visited.contains(index)) {
-                DFT(grid, i, j, visited);
-                count++;
-            }
-        }
-    }
-
-    return count;
-}
-
-private void DFT(char[][] grid, int row, int col, HashSet<Integer> visited) {
-    int rows = grid.length;
-    int cols = grid[0].length;
-
-    Stack<Integer> stack = new Stack<>();
-    stack.push(row * cols + col);
-
-    while (!stack.isEmpty()) {
-        int currentIndex = stack.pop();
-        int currentRow = currentIndex / cols;
-        int currentCol = currentIndex % cols;
-
-        if (!visited.contains(currentIndex) && grid[currentRow][currentCol] == '1') {
-            visited.add(currentIndex);
-
-            int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-            for (int[] dir : directions) {
-                int newRow = currentRow + dir[0];
-                int newCol = currentCol + dir[1];
-                if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && grid[newRow][newCol] == '1') {
-                    stack.push(newRow * cols + newCol);
+        // Iterate through each cell in the grid
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == '1') { // If the current cell is land
+                    bfs(grid, i, j); // Explore the island starting from this cell using BFS
+                    count++; // Increment count since we found a new island
                 }
             }
         }
+
+        return count; // Return the total count of islands
+    }
+
+    // BFS method to explore the island starting from the given cell (i, j)
+    public void bfs(char[][] grid, int i, int j) {
+        int rows = grid.length; // Number of rows in the grid
+        int cols = grid[0].length; // Number of columns in the grid
+
+        // Base case: If the current cell is out of bounds or water ('0'), return
+        if (i < 0 || j < 0 || i >= rows || j >= cols || grid[i][j] == '0') {
+            return;
+        }
+
+        grid[i][j] = '0'; // Mark the current cell as visited by changing it to water ('0')
+
+        // Explore the neighboring cells in four directions: up, down, left, right
+        bfs(grid, i + 1, j); // Down
+        bfs(grid, i - 1, j); // Up
+        bfs(grid, i, j + 1); // Right
+        bfs(grid, i, j - 1); // Left
     }
 }
 
-}
+
+
+
+
+
+
+
+
+//  it's not a bfs method i just named as a bfs 
+ 
+  
+   
