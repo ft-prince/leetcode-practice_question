@@ -1,22 +1,32 @@
 class Solution {
     public int trap(int[] height) {
-int leftmax[]= new int [height.length];
-int rightmax[]= new int [height.length];
-leftmax[0]=height[0];
-// to find the maximum value for maximum value at left side
- for(int i=1;i<height.length;i++){
-  leftmax[i]=Math.max(leftmax[i-1],height[i]);
-    }
-//same for right
-rightmax[height.length-1]=height[height.length-1];
-   for(int i=height.length-2;i>=0;i--){
-    rightmax[i]=Math.max(rightmax[i+1],height[i]);
-   }
-   int ans=0;
-   for(int i=0;i<height.length;i++){
-       int min=Math.min(rightmax[i],leftmax[i])-height[i];
-       ans+=min;
-   }
-   return ans;
+        int left = 0; // Pointer for the left side
+        int right = height.length - 1; // Pointer for the right side
+        int leftbar = height[0]; // Initialize the leftmost bar height
+        int rightbar = height[right]; // Initialize the rightmost bar height
+        int ans = 0; // Variable to store the total trapped water
+        
+        // Loop until the left pointer crosses the right pointer
+        while (left <= right) {
+            // Determine which bar is limiting (left or right)
+            if (leftbar < rightbar) {
+                // If the height of the current position is greater than the left bar
+                if (height[left] > leftbar) {
+                    leftbar = height[left]; // Update the left bar height
+                } else {
+                    ans += leftbar - height[left]; // Add trapped water between left bar and current position
+                    left++; // Move the left pointer to the next position
+                }
+            } else {
+                // If the height of the current position is greater than the right bar
+                if (height[right] > rightbar) {
+                    rightbar = height[right]; // Update the right bar height
+                } else {
+                    ans += rightbar - height[right]; // Add trapped water between right bar and current position
+                    right--; // Move the right pointer to the previous position
+                }
+            }
+        }
+        return ans; // Return the total trapped water
     }
 }
