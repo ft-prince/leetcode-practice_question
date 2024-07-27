@@ -1,36 +1,44 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-       Arrays.sort(nums);
-       List<List<Integer>> list=new ArrayList<>();
-       for(int i=0;i<=nums.length-3;i++){
-           if(i==0||nums[i]!=nums[i-1]){
-             int left =i+1,right=nums.length-1;
-             int target=0-nums[i]; 
-             while(left<right){
-                 if(nums[left]+nums[right]==target){
-                    List<Integer> triplets=new ArrayList<>();
-      triplets.add(nums[i]);
-      triplets.add(nums[left]);
-      triplets.add(nums[right]);
-      list.add(triplets);
-        
-        //  for duplicate
-      while(left<nums.length-1 && nums[left] == nums[left+1]) left++;
-      while(right>0 && nums[right] == nums[right-1]) right--;
+        if (nums.length < 3) {
+            return new ArrayList<>();
+        }
 
-left++;
-right--;                 
-                 }
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
 
-                 else if (nums[left]+nums[right]<target){
-                     left++;
-                 }
-                 else{
-                     right--;
-                 }
-             }
-           }
-       } 
-       return list ;
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (i != 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            twoSum(nums, i + 1, result, -nums[i]);
+        }
+
+        return result;
     }
+
+    private void twoSum(int[] nums, int k, List<List<Integer>> result, int target) {
+        int i = k, j = nums.length - 1;
+
+        while (i < j) {
+            if (nums[i] + nums[j] > target) {
+                j--;
+            } else if (nums[i] + nums[j] < target) {
+                i++;
+            } else {
+                result.add(Arrays.asList(-target, nums[i], nums[j]));
+
+                while (i < j && nums[i] == nums[i + 1]) {
+                    i++;
+                }
+                while (i < j && nums[j] == nums[j - 1]) {
+                    j--;
+                }
+
+                i++;
+                j--;
+            }
+        }
+    }
+    
 }
