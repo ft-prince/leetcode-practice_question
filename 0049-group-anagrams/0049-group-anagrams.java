@@ -1,36 +1,26 @@
 class Solution {
- 
-    public List<List<String>> groupAnagrams(String[] words) {
-Map<String, List<String>> m = new HashMap<>();
-        for(String w:words)
-        {
-            String s=sort(w);
-            if(m.containsKey(s))
-            {
-                List<String>l=m.get(s);
-                l.add(w);
-                m.put(s,l);
-            }
-            else
-            {
-                List<String>l=new ArrayList<>();
-                l.add(w);
-                m.put(s,l);
-                
-            }
-        }
-List<List<String>>ans=new ArrayList();
-for(String key:m.keySet())
-{
-    ans.add(m.get(key));
-}
-return ans;
-    }
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap();
 
-    public String sort(String s)
-    {
-        char a[]=s.toCharArray();
-        Arrays.sort(a);
-        return new String(a);
+        for (String str : strs) {
+            //  first sort it 
+            char[] arr = str.toCharArray();
+            Arrays.sort(arr);
+            String key=String.valueOf(arr);
+            //  already exist or not 
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<>());
+            }
+            //  add into the list of that key 
+            map.get(key).add(str);
+        }
+
+
+        List<List<String>> answer=new ArrayList();
+
+        for(String key : map.keySet()){
+            answer.add(map.get(key));
+        }
+    return answer;
     }
 }
