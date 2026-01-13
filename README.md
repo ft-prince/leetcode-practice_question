@@ -26,6 +26,7 @@ leetcode
 | [0011-container-with-most-water](https://github.com/ft-prince/leetcode-practice_question/tree/master/0011-container-with-most-water) |
 | [0049-group-anagrams](https://github.com/ft-prince/leetcode-practice_question/tree/master/0049-group-anagrams) |
 | [0128-longest-consecutive-sequence](https://github.com/ft-prince/leetcode-practice_question/tree/master/0128-longest-consecutive-sequence) |
+| [0150-evaluate-reverse-polish-notation](https://github.com/ft-prince/leetcode-practice_question/tree/master/0150-evaluate-reverse-polish-notation) |
 ## Union Find
 |  |
 | ------- |
@@ -38,4 +39,12 @@ leetcode
 |  |
 | ------- |
 | [0011-container-with-most-water](https://github.com/ft-prince/leetcode-practice_question/tree/master/0011-container-with-most-water) |
+## Math
+|  |
+| ------- |
+| [0150-evaluate-reverse-polish-notation](https://github.com/ft-prince/leetcode-practice_question/tree/master/0150-evaluate-reverse-polish-notation) |
+## Stack
+|  |
+| ------- |
+| [0150-evaluate-reverse-polish-notation](https://github.com/ft-prince/leetcode-practice_question/tree/master/0150-evaluate-reverse-polish-notation) |
 <!---LeetCode Topics End-->
