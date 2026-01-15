@@ -28,6 +28,7 @@ leetcode
 | [0049-group-anagrams](https://github.com/ft-prince/leetcode-practice_question/tree/master/0049-group-anagrams) |
 | [0128-longest-consecutive-sequence](https://github.com/ft-prince/leetcode-practice_question/tree/master/0128-longest-consecutive-sequence) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/ft-prince/leetcode-practice_question/tree/master/0150-evaluate-reverse-polish-notation) |
+| [0200-number-of-islands](https://github.com/ft-prince/leetcode-practice_question/tree/master/0200-number-of-islands) |
 ## Union Find
 |  |
 | ------- |
@@ -49,4 +50,20 @@ leetcode
 |  |
 | ------- |
 | [0150-evaluate-reverse-polish-notation](https://github.com/ft-prince/leetcode-practice_question/tree/master/0150-evaluate-reverse-polish-notation) |
+## Depth-First Search
+|  |
+| ------- |
+| [0200-number-of-islands](https://github.com/ft-prince/leetcode-practice_question/tree/master/0200-number-of-islands) |
+## Breadth-First Search
+|  |
+| ------- |
+| [0200-number-of-islands](https://github.com/ft-prince/leetcode-practice_question/tree/master/0200-number-of-islands) |
+## Union-Find
+|  |
+| ------- |
+| [0200-number-of-islands](https://github.com/ft-prince/leetcode-practice_question/tree/master/0200-number-of-islands) |
+## Matrix
+|  |
+| ------- |
+| [0200-number-of-islands](https://github.com/ft-prince/leetcode-practice_question/tree/master/0200-number-of-islands) |
 <!---LeetCode Topics End-->
