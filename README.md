@@ -13,6 +13,7 @@ leetcode
 ## String
 |  |
 | ------- |
+| [0038-count-and-say](https://github.com/ft-prince/leetcode-practice_question/tree/master/0038-count-and-say) |
 | [0049-group-anagrams](https://github.com/ft-prince/leetcode-practice_question/tree/master/0049-group-anagrams) |
 | [0242-valid-anagram](https://github.com/ft-prince/leetcode-practice_question/tree/master/0242-valid-anagram) |
 ## Sorting
