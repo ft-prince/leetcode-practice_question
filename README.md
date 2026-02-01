@@ -67,4 +67,8 @@ leetcode
 |  |
 | ------- |
 | [0200-number-of-islands](https://github.com/ft-prince/leetcode-practice_question/tree/master/0200-number-of-islands) |
+## Backtracking
+|  |
+| ------- |
+| [0052-n-queens-ii](https://github.com/ft-prince/leetcode-practice_question/tree/master/0052-n-queens-ii) |
 <!---LeetCode Topics End-->
